@@ -1,0 +1,91 @@
+openapi: 3.0.1
+info:
+  title: "NomadHub API - ${environment}"
+  version: "1.0.0"
+paths:
+  /auth/login:
+    post:
+      summary: "User Login"
+      description: "Endpoint para autenticar o usuário."
+      responses:
+        '200':
+          description: "Login efetuado com sucesso."
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "1.0"
+        type: http_proxy
+        httpMethod: POST
+        connectionType: VPC_LINK
+        connectionId: "${vpc_link_id}"
+        uri: "${nlb_endpoint}/auth/login"
+
+  /auth/refresh:
+    post:
+      summary: "Refresh Token"
+      description: "Endpoint para renovar o token de acesso."
+      responses:
+        '200':
+          description: "Token renovado com sucesso."
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "1.0"
+        type: http_proxy
+        httpMethod: POST
+        connectionType: VPC_LINK
+        connectionId: "${vpc_link_id}"
+        uri: "${nlb_endpoint}/auth/refresh"
+
+  /users/register:
+    post:
+      summary: "Register New User"
+      description: "Endpoint para cadastro de um novo usuário."
+      responses:
+        '201':
+          description: "Usuário cadastrado com sucesso."
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "1.0"
+        type: http_proxy
+        httpMethod: POST
+        connectionType: VPC_LINK
+        connectionId: "${vpc_link_id}"
+        uri: "${nlb_endpoint}/users/register"
+
+  /users/me:
+    get:
+      summary: "Get User Profile"
+      description: "Endpoint para recuperar o perfil do usuário autenticado."
+      responses:
+        '200':
+          description: "Perfil do usuário retornado com sucesso."
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "1.0"
+        type: http_proxy
+        httpMethod: GET
+        connectionType: VPC_LINK
+        connectionId: "${vpc_link_id}"
+        uri: "${nlb_endpoint}/users/me"
+    patch:
+      summary: "Update User Profile"
+      description: "Endpoint para atualizar o perfil do usuário."
+      responses:
+        '200':
+          description: "Perfil do usuário atualizado com sucesso."
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "1.0"
+        type: http_proxy
+        httpMethod: PATCH
+        connectionType: VPC_LINK
+        connectionId: "${vpc_link_id}"
+        uri: "${nlb_endpoint}/users/me"
+
+components:
+  securitySchemes:
+    CognitoAuthorizer:
+      type: apiKey
+      name: Authorization
+      in: header
+      x-amazon-apigateway-authtype: cognito_user_pools
+      x-amazon-apigateway-authorizer:
+        type: cognito_user_pools
+        providerARNs:
+          - "${cognito_user_pool_arn}"
+security:
+  - CognitoAuthorizer: []
