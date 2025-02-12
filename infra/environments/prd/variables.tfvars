@@ -1,4 +1,4 @@
-region                = "us-east-1"
+region                = "sa-east-1"
 environment           = "prd"
 state_bucket          = "trip-radar-terraform-state"
 nlb_endpoint          = "http://my-nlb-prd-1234567890.elb.amazonaws.com"

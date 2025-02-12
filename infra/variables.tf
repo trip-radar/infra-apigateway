@@ -18,17 +18,7 @@ variable "nlb_endpoint" {
   type        = string
 }
 
-variable "cognito_user_pool_name" {
-  description = "Nome do Cognito User Pool"
-  type        = string
-}
-
 variable "subnet_ids" {
   description = "Lista de IDs das subnets para o VPC Link"
-  type        = list(string)
-}
-
-variable "security_group_ids" {
-  description = "Lista de IDs dos security groups para o VPC Link"
   type        = list(string)
 }

@@ -1,3 +1,10 @@
-data "aws_cognito_user_pool" "this" {
-  name = var.cognito_user_pool_name
+data "aws_security_group" "security_group_default" {
+  name = "default" 
+}
+
+data "aws_subnets" "subnets-tripradar" {
+  filter {
+    name   = "tag:Name"
+    values = ["tripradar-*"]
+  }
 }

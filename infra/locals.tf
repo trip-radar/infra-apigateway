@@ -5,4 +5,6 @@ locals {
     nlb_endpoint          = var.nlb_endpoint,
     cognito_user_pool_arn = data.aws_cognito_user_pool.this.arn
   })
+
+  name_security_group = "nomad-hub-api-security-group"  
 }

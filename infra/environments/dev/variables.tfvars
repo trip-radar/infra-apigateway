@@ -1,7 +1,5 @@
-region                = "us-east-1"
+region                = "sa-east-1"
 environment           = "dev"
 state_bucket          = "trip-radar-terraform-state"
 nlb_endpoint          = "http://my-nlb-dev-1234567890.elb.amazonaws.com"
-cognito_user_pool_name = "my-dev-user-pool"
-subnet_ids            = ["subnet-0123456789abcdef0", "subnet-0fedcba9876543210"]
-security_group_ids    = ["sg-0123456789abcdef0"]
+subnet_ids            = ["subnet-07b9f22d91dbce12e", "subnet-0b0a0c30fc53298cf", "subnet-0a9bdbedc74d362f2"]
