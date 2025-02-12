@@ -16,7 +16,7 @@ resource "aws_security_group_rule" "ingress_rules" {
   to_port           = each.value.to_port
   protocol          = each.value.protocol
   cidr_blocks       = each.value.cidr_blocks
-  security_group_id = aws_security_group.new_group.id
+  security_group_id = aws_security_group.security_group_nomadhub.id
   description       = each.value.description
 }
 
@@ -28,6 +28,6 @@ resource "aws_security_group_rule" "egress_rules" {
   to_port           = each.value.to_port
   protocol          = each.value.protocol
   cidr_blocks       = each.value.cidr_blocks
-  security_group_id = aws_security_group.new_group.id
+  security_group_id = aws_security_group.security_group_nomadhub.id
   description       = each.value.description
 }
