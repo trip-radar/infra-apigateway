@@ -6,5 +6,6 @@ locals {
     cognito_user_pool_arn = data.aws_cognito_user_pool.this.arn
   })
 
-  name_security_group = "nomad-hub-api-security-group"  
+  name_security_group = "nomad-hub-api-security-group" 
+  cognito_user_pool_name = "nomad-user-pool" 
 }
