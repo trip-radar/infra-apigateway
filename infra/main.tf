@@ -1,11 +1,7 @@
-output "subnet_ids" {
-  value = data.aws_subnets.subnets-tripradar.ids
-}
-
 # Criação do VPC Link para o API Gateway apontar para o NLB
 resource "aws_apigatewayv2_vpc_link" "vpc_link" {
   name                = "trip-radar-vpc-link-${var.environment}"
-  subnet_ids          = output.subnet_ids
+  subnet_ids          = data.aws_subnets.subnets-tripradar.ids
   security_group_ids  = aws_security_group.security_group_nomadhub.id
 }
 
