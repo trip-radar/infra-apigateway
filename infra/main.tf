@@ -1,3 +1,7 @@
+output "subnet_ids" {
+  value = data.aws_subnets.subnets-tripradar.ids
+}
+
 # Criação do VPC Link para o API Gateway apontar para o NLB
 resource "aws_apigatewayv2_vpc_link" "vpc_link" {
   name                = "trip-radar-vpc-link-${var.environment}"
