@@ -15,7 +15,7 @@ jobs:
     with:
       environment: dev
       apply: true
-      aws-assume-role-arn: "arn:aws:iam::{{ sua conta aws }}:role/{{ nome da role }}"
+      aws-assume-role-arn: "arn:aws:iam::599528519972:role/githubactions-tripradar-pipeline"
       aws-region: "sa-east-1"
-      aws-statefile-s3-bucket: "{{ nome do bucket s3 }}"
-      aws-lock-dynamodb-table: "{{ nome da tabela do dynamodb }}"
+      aws-statefile-s3-bucket: "lucaslima-dev-sa-east-1-terraform-statefile"
+      aws-lock-dynamodb-table: "lucaslima-dev-sa-east-1-terraform-lock"
