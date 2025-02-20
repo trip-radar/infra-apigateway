@@ -22,3 +22,10 @@ variable "subnet_ids" {
   description = "Lista de IDs das subnets para o VPC Link"
   type        = list(string)
 }
+
+variable "cognito_arn" {
+  description = "ARN Cognito"
+  type        = list(string)
+}
+
+

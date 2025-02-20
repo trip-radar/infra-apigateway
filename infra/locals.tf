@@ -3,9 +3,8 @@ locals {
     environment           = var.environment,
     vpc_link_id           = aws_apigatewayv2_vpc_link.vpc_link.id,
     nlb_endpoint          = var.nlb_endpoint,
-    cognito_user_pool_arn = data.aws_cognito_user_pool.this.arn
+    cognito_user_pool_arn = var.cognito_arn
   })
 
-  name_security_group = "nomad-hub-api-security-group" 
-  cognito_user_pool_name = "nomad-user-pool" 
+  name_security_group = "nomad-hub-api-security-group"  
 }

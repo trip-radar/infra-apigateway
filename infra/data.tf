@@ -11,7 +11,3 @@ data "aws_subnets" "subnets-tripradar" {
     values = ["tripradar-*"]
   }
 }
-
-data "aws_cognito_user_pool" "cognito_user_pool" {
-  name = local.cognito_user_pool_name
-}
